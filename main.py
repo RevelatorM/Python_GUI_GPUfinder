@@ -1,17 +1,23 @@
 from tkinter import * #importing everything from tkinter
+import sqlite3
 
 #widgets - GUI elements
 #windows - container
+conn = sqlite3.connect("database.db")  # creating db
+cursor = conn.cursor()
+#===================================
+cursor.execute("""CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,age INTEGER)""")
+
 
 #===================================
-def submit():
+#def submit():
 
 #===================================
 
 window = Tk() #creating a window
 
 #===================================
-submit = Button(window, text = "submit",command = submit) #creating a button
+#submit = Button(window, text = "submit",command = submit) #creating a button
 entry = Entry() #declaring a textbox
 entry.config(font=("Courier New",20)) #changing font and text size
 entry.insert(0,"write here!") #creating basic text

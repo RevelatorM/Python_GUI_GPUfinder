@@ -3,10 +3,12 @@ import sqlite3
 
 #widgets - GUI elements
 #windows - container
+
 conn = sqlite3.connect("database.db")  # creating db
 cursor = conn.cursor()
 #===================================
-cursor.execute("""CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,age INTEGER)""")
+cursor.execute("""CREATE TABLE IF NOT EXISTS gpus (id INTEGER PRIMARY KEY, gpuname TEXT, vram TEXT, MHz TEXT, vmhz TEXT)""")
+sql = "INSERT INTO gpus (gpuname, vram, MHz, vmhz) VALUES (?, ?, ?, ?)"
 
 
 #===================================

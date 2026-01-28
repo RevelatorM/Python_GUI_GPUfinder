@@ -68,4 +68,3 @@ listbox = Listbox(
 )
 listbox.pack(pady=10)
 window.mainloop() #event listener and windowloop
-

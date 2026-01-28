@@ -27,8 +27,24 @@ cursor.executemany(
 conn.commit()
 
 #===================================
-#def submit():
+def search(): #searchinf function
+    query = entry.get()
 
+    listbox.delete(0, END)
+
+    cursor.execute(
+        "SELECT gpuname, vram, MHz, vmhz FROM gpus WHERE gpuname LIKE ?",
+        ("%" + query + "%",)
+    )
+
+    rows = cursor.fetchall()
+
+    for name, vram, mhz, vmhz in rows:
+        listbox.insert(END, name)
+        listbox.insert(END, f"  VRAM: {vram}")
+        listbox.insert(END, f"  {mhz}")
+        listbox.insert(END, f"  {vmhz}")
+        listbox.insert(END, "-" * 30)
 #===================================
 
 window = Tk() #creating a window
